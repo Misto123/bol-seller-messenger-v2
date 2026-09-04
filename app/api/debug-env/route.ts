@@ -7,10 +7,12 @@ export async function GET() {
     hasWorkflowApiUrl: !!workflowApiUrl,
     workflowApiUrlLength: workflowApiUrl?.length || 0,
     workflowApiUrlPreview: workflowApiUrl 
-      ? `${workflowApiUrl.substring(0, 20)}...` 
+      ? `${workflowApiUrl.substring(0, 30)}...` 
       : 'NOT SET',
     allEnvKeys: Object.keys(process.env).filter(k => 
       k.includes('WORKFLOW') || k.includes('API')
-    )
+    ),
+    nodeEnv: process.env.NODE_ENV,
+    vercelEnv: process.env.VERCEL_ENV,
   });
 }
